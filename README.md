@@ -1,13 +1,5 @@
-````markdown
-<p align="center">
-  <h1 align="center">Polymarket Copy Trading Agent</h1>
-  <p align="center">
-    Follow Polymarket traders, manage your trading activity, and use an AI agent for faster market research from one dashboard.
-  </p>
-  <p align="center">
-    Rust backend · Real-time Polymarket stream · Web dashboard · AI agent for trading research
-  </p>
-</p>
+# Polymarket Copy Trading Agent
+Rust backend · Real-time Polymarket stream · Web dashboard · AI agent for trading research
 
 ---
 
