@@ -1,67 +1,93 @@
+````markdown
 <p align="center">
-  <h1 align="center">Polymarket CopyTrading Bot</h1>
+  <h1 align="center">Polymarket Copy Trading Agent</h1>
   <p align="center">
-    <strong>Mirror elite traders, monitor your book, and get AI-assisted research from a single, fast interface.</strong>
+    Follow Polymarket traders, manage your trading activity, and use an AI agent for faster market research from one dashboard.
   </p>
   <p align="center">
-    Rust backend &middot; Real-time WebSocket &middot; Web dashboard &middot; Built-in AI Agent
+    Rust backend · Real-time Polymarket stream · Web dashboard · AI agent for trading research
   </p>
 </p>
 
 ---
 
-## What is this?
+## Welcome
 
-This project is a self-hosted trading co-pilot for [Polymarket](https://polymarket.com). Instead of manually refreshing polymarket.com and tracking wallets by hand, it gives you:
+This project is a **Polymarket copy trading agent** built for people who want a smoother way to trade on **Polymarket**.
 
-- **Instant copy-trading** — follow one or many high-performing wallets with configurable sizing, filters, and exit rules
-- **Portfolio overview** — see your open positions, notional exposure, and active trades in one consolidated view
-- **Live activity stream** — every trade from your targets, streamed as it happens and organized for quick scanning
-- **AI-powered analysis** — ask the Agent about any market, trader, or position; get structured notes (sentiment, timing, catalysts, risks) and guidance
-- **Simulation mode** — dry-run strategies with no real capital before you go live
+Instead of manually checking wallets, refreshing markets, and trying to react late, this project helps you handle **Polymarket trading** from one place. You can watch trader activity, copy trades, monitor positions, and use an **AI agent** to research markets before making decisions.
 
-It works across politics, sports, crypto, and macro. You adjust behavior via `trade.toml` (targets + filters). Everything runs locally; API keys and private keys stay on your machine.
+The goal is simple:
 
----
+- make **Polymarket trading** easier
+- make wallet tracking easier
+- make copy trading more practical
+- give users an **agent** that helps with market analysis
+- keep everything fast and local
 
-## Why this exists
-
-Copy trading itself is not the hard part — doing it *sensibly* is. Even on fast chains (Solana, Jito, etc.), a lot of people still lost money because the “strategy” was just mirroring a single wallet. That’s fragile.
-
-You actually need:
-
-- Multiple leaders, not a single hero wallet
-- Filters on market type, timing, and size
-- Rules for when to follow, when to ignore, and when to exit
-
-That is where **AI** is useful: it can help reason about signals and prioritize which trades to act on.
-
-This bot came out of several months of iterating on filters, timing, and position sizing. Backtests, simulation runs, and a small live balance pointed toward **slow, consistent compounding** instead of chasing volatility.
-
-Most existing Polymarket copy bots are written in TypeScript or Python and tend to be single-threaded. This stack is **Rust front to back** (server + Leptos/WASM UI) so it can process WebSocket feeds and copy decisions in real time while keeping the UI responsive.
-
-When multiple leaders pile into the same market, the **AI Agent** can help you rank those signals (e.g. by PnL in that category, historical win rate, etc.) so you don’t blindly copy everyone. As markets and leaders evolve, you can use the Agent to periodically reassess which wallets are still worth following.
-
-The design goal isn’t “hit a home run trade”, it’s **durable growth**: diversified risk across sports/crypto/politics/macro, plus an AI-assisted overlay that helps you keep your edge over months, not minutes.
-
+This is not just a dashboard. It is a **Polymarket trading workflow** with an integrated **agent** layer.
 
 ---
 
-**Repository:** [github.com/brunobmtx/polymarket-copy-trading-bot-agent](https://github.com/brunobmtx/polymarket-copy-trading-bot-agent)  
-**Contact:** [@snipmaxi](https://t.me/snipmaxi) — questions, ideas, and contributions welcome.
+## What this project helps you do
+
+With this **Polymarket agent**, you can:
+
+- follow one or more traders on **Polymarket**
+- copy their **trading** activity automatically
+- watch live **Polymarket** trades as they happen
+- review your portfolio and open positions
+- test ideas in simulation mode before live **trading**
+- use an AI **agent** to analyze a market, trader, or position
+
+If you already spend time watching **Polymarket**, this project is meant to make that process more comfortable.
 
 ---
 
-## Features
+## Why this Polymarket trading agent exists
 
-| | Feature | What it does |
-|---|---------|-------------|
-| :bar_chart: | **Dashboard** | Live status, activity stream, copy targets — single page for "what's happening right now" |
-| :robot: | **Agent** | AI chat (OpenRouter / OpenAI / Claude). Research any market or position — get trade hints, risk analysis, and confidence signals |
-| :scroll: | **Logs** | Full trade and event log, streamed in real time via SSE |
-| :trophy: | **Top Traders** | Follow the best wallets on Polymarket. See their activity the moment it happens |
-| :briefcase: | **Portfolio** | Your wallet's active trades, total value, and per-target positions side by side |
-| :gear: | **Settings** | All config at a glance — targets, multiplier, exit rules, simulation toggle |
+A lot of people try copy trading on **Polymarket**, but many do it in a very basic way:
+
+- follow one wallet
+- copy everything
+- hope it works
+
+That usually breaks down fast.
+
+Good **trading** on **Polymarket** needs more than blind copying. It needs filtering, timing, sizing, and better judgment. That is why this project combines:
+
+- real-time **Polymarket** trade tracking
+- configurable copy **trading**
+- portfolio monitoring
+- an AI **agent** for research and context
+
+The **agent** does not place trades for you. It helps you think more clearly about a market, a signal, or a trader before you act.
+
+So the real purpose of this project is not reckless speed. It is better decision-making for **Polymarket trading**.
+
+---
+
+## What you get in the dashboard
+
+When you run the project, you get a web interface where your **Polymarket trading** activity is easier to understand.
+
+### Dashboard
+See what is happening right now in your **Polymarket** setup. This is the fastest place to monitor live copy **trading**, recent actions, and important changes.
+
+### Agent
+The AI **agent** helps with **Polymarket** market research. Ask about a market, a trader, a position, or a recent move, and the **agent** gives you structured trading context.
+
+### Logs
+Review the full history of events and **trading** actions in real time.
+
+### Top Traders
+Track the wallets you care about most on **Polymarket** and watch their activity as it happens.
+
+### Portfolio
+See your current positions, exposure, and active **trading** state in one place.
+
+### Settings
+Adjust how your copy **trading agent** behaves, including sizing, filters, and exit logic.
 
 ---
 
@@ -75,24 +101,28 @@ The design goal isn’t “hit a home run trade”, it’s **durable growth**: d
 |:---:|:---:|:---:|
 | ![Top Traders](docs/screenshots/toptraders.png) | ![Portfolio](docs/screenshots/portfolio.png) | ![Settings](docs/screenshots/settings.png) |
 
-*To refresh: `cd frontend && trunk build --release`, then `python3 scripts/serve_spa.py` & `npm run screenshots`*
-
 ---
 
-## Quick Start
+## Getting started
 
-### 1. Clone
+You do not need to understand the whole codebase before using this **Polymarket trading agent**.
+
+Just follow the setup below.
+
+### 1) Clone the project
 
 ```bash
 git clone https://github.com/brunobmtx/polymarket-copy-trading-bot-agent.git
 cd polymarket-copy-trading-bot-agent
-```
+````
 
-### 2. Configure
+---
 
-Create two files in the project root:
+### 2) Add your Polymarket credentials
 
-**`config.json`** — your Polymarket CLOB credentials:
+Create a `config.json` file in the project root.
+
+This file is for your **Polymarket** CLOB credentials and wallet setup.
 
 ```jsonc
 {
@@ -109,7 +139,15 @@ Create two files in the project root:
 }
 ```
 
-**`trade.toml`** — who to copy and how. Use any leader's wallet address from [Polymarket](https://polymarket.com) as `target_address` or in `target_addresses`:
+This is the core connection between your local setup and **Polymarket trading**.
+
+---
+
+### 3) Define how your copy trading should behave
+
+Create a `trade.toml` file in the project root.
+
+This file tells the **agent** which **Polymarket** trader to follow and how your **trading** rules should work.
 
 ```toml
 [copy]
@@ -119,7 +157,7 @@ size_multiplier = 0.01
 poll_interval_sec = 0.5
 
 [exit]
-take_profit = 0      # 0 = off
+take_profit = 0
 stop_loss = 0
 trailing_stop = 0
 
@@ -129,7 +167,20 @@ entry_trade_sec = 0
 trade_sec_from_resolve = 0
 ```
 
-**`.env`** *(not required, for AI Agent)*:
+A few important notes:
+
+* `target_address` is the **Polymarket** wallet you want to copy
+* `size_multiplier` controls how much of their trade size you mirror
+* exit values set your **trading** protection rules
+* filter values help you avoid low-quality copy **trading** behavior
+
+---
+
+### 4) Add AI agent keys if you want agent research
+
+The AI **agent** is optional, but it makes the **Polymarket trading** workflow much more useful.
+
+Create a `.env` file if you want to use the **agent**:
 
 ```env
 OPENROUTER_API_KEY=sk-or-...
@@ -137,140 +188,245 @@ OPENROUTER_API_KEY=sk-or-...
 # or ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-### 3. Build & Run
+Without this, the copy **trading** features still work.
+With this, the **agent** tab becomes available for research.
+
+---
+
+### 5) Build and run
 
 ```bash
-# Build the frontend (once)
 cd frontend && trunk build --release && cd ..
-
-# Run
 cargo run --release --bin main_copytrading
 ```
 
-Open **http://localhost:8000** — that's it. Dashboard, agent, logs, portfolio, everything is there.
+Then open:
 
-### 4. Simulation mode (no real orders)
+```text
+http://localhost:8000
+```
+
+At that point, your **Polymarket agent** dashboard should be live.
+
+---
+
+## Want to test first without real trading?
+
+Use simulation mode.
 
 ```bash
 cargo run --release --bin main_copytrading -- --simulation
 ```
 
-Perfect for testing your setup, exploring the UI, and evaluating traders before risking capital.
+This is the best way to get comfortable with the **Polymarket trading agent** before live use.
+
+Simulation mode is useful for:
+
+* testing your setup
+* checking your copy **trading** configuration
+* reviewing trader behavior
+* exploring the dashboard
+* using the **agent** safely before real execution
 
 ---
 
-## Requirements
+## What you need before using it
 
-| Requirement | Details |
-|------------|---------|
-| **Rust** | 1.70+ |
-| **Polymarket account** | USDC on Polygon + CLOB API keys ([docs](https://docs.polymarket.com/developers/CLOB/)) |
-| **Frontend tooling** | `cargo install trunk` and `rustup target add wasm32-unknown-unknown` |
+Before running this **Polymarket** project, make sure you have:
+
+* **Rust 1.70+**
+* a **Polymarket** account
+* USDC on Polygon
+* **Polymarket** CLOB API credentials
+* frontend tooling:
+
+  * `cargo install trunk`
+  * `rustup target add wasm32-unknown-unknown`
 
 ---
 
-## How it works
+## How the Polymarket trading flow works
 
-The bot subscribes to Polymarket's **activity WebSocket** (`wss://ws-live-data.polymarket.com`) and filters by your target addresses client-side. Trades are pushed the instant they happen — you copy with minimal delay and see them in the UI in real time.
+This **agent** listens to the live **Polymarket** activity WebSocket.
 
-A separate loop refreshes positions for the portfolio view. All copy-trading is driven by the live stream, not polling.
+When a target wallet makes a trade, the project sees that event, checks your rules, and decides whether to copy the **trading** action. At the same time, it updates the dashboard so you can see what is happening.
 
+Basic flow:
+
+```text
+Polymarket activity stream
+        ↓
+filter by target wallet
+        ↓
+apply trading rules
+        ↓
+copy trade or ignore
+        ↓
+show result in dashboard, logs, and portfolio
 ```
-Activity WebSocket ──▶ Filter by targets ──▶ Copy trade ──▶ Dashboard + Logs
-                                                │
-                                         Exit rules (TP/SL/trailing)
-```
+
+So the project is always centered around real-time **Polymarket trading**.
 
 ---
 
-## AI Agent
+## Screenshots
 
-The Agent tab turns your dashboard into a research terminal. Pick a provider (OpenRouter, OpenAI, or Claude) from the dropdown — it uses whichever API keys you set in `.env`.
+| Dashboard | Agent | Logs |
+|:---:|:---:|:---:|
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Agent](docs/screenshots/agent.png) | ![Logs](docs/screenshots/logs.png) |
 
-The agent follows the **Monitor → Analyze** method (inspired by [Mahoraga](https://mahoraga.dev/)):
-
-- You ask a question about a market, a position, or a trader
-- The LLM researches sentiment, timing, catalysts, and red flags
-- You get back a structured note: **Signal → Research → Context → Confidence → Guidance**
-
-No execution — research and guidance only. You decide when to act.
+| Top Traders | Portfolio | Settings |
+|:---:|:---:|:---:|
+| ![Top Traders](docs/screenshots/toptraders.png) | ![Portfolio](docs/screenshots/portfolio.png) | ![Settings](docs/screenshots/settings.png) |
 
 ---
 
-## Config Reference
+## How the AI agent helps
 
-**`config.json`** — CLOB API credentials and wallet:
+The AI **agent** is for research, not automatic execution.
 
-| Field | Required | Notes |
-|-------|----------|-------|
-| `clob_api_url` | Yes | `https://clob.polymarket.com` |
-| `private_key` | Yes | Polygon wallet private key |
-| `api_key` / `api_secret` / `api_passphrase` | Yes | From Polymarket CLOB dashboard |
-| `proxy_wallet_address` | No | For proxy/Magic wallets |
-| `signature_type` | No | `0` = EOA, `1` = Proxy, `2` = GnosisSafe |
+You can ask the **agent** things like:
 
-**`trade.toml`** — copy-trading behavior:
+* Is this **Polymarket** market worth entering?
+* Why is this trader buying here?
+* What are the risks of this position?
+* What changed in this market?
+* Is this move likely late for copy **trading**?
 
-| Section | Key fields |
-|---------|------------|
-| `[copy]` | `target_address` or `target_addresses`, `size_multiplier`, `poll_interval_sec`, `revert_trade` |
-| `[exit]` | `take_profit`, `stop_loss`, `trailing_stop` (0 = off) |
-| `[filter]` | `buy_amount_limit_in_usd`, `entry_trade_sec`, `trade_sec_from_resolve` |
-| `[ui]` | `delta_highlight_sec`, `delta_animation_sec` |
+The **agent** can help organize your thinking around:
 
-Top-level: `clob_host`, `chain_id`, `port`, `simulation`.
+* market sentiment
+* catalysts
+* timing
+* confidence
+* possible risks
+* overall **trading** context
+
+This makes the **agent** useful as a research assistant inside your **Polymarket** workflow.
 
 ---
 
-## Production Deployment
+## A simple explanation of the main config
+
+### `config.json`
+
+This handles your **Polymarket** credentials and wallet settings.
+
+Important fields:
+
+* `clob_api_url` → usually `https://clob.polymarket.com`
+* `private_key` → your Polygon wallet private key
+* `api_key`, `api_secret`, `api_passphrase` → your **Polymarket** API credentials
+* `proxy_wallet_address` → optional
+* `signature_type` → wallet signing mode
+
+### `trade.toml`
+
+This controls your copy **trading** behavior.
+
+Important areas:
+
+* `[copy]` → who you follow and how much you copy
+* `[exit]` → risk controls for **trading**
+* `[filter]` → filters that reduce bad copy **trading**
+* `[ui]` → dashboard behavior
+
+---
+
+## Running it in production
+
+To deploy this **Polymarket trading agent** on a server:
 
 ```bash
-# 1. Build frontend
 cd frontend && trunk build --release && cd ..
-
-# 2. Run (serves both API and UI on one port)
 cargo run --release --bin main_copytrading
 ```
 
-Access from any device on your network at `http://<your-server-ip>:8000`. The binary is the single entry point — no separate frontend server needed.
+You can then access it from another device on your network with:
+
+```text
+http://<your-server-ip>:8000
+```
+
+This project serves the UI and backend together, so the setup is relatively simple for a **Polymarket** tool.
 
 ---
 
-## Project Layout
+## Project structure
 
-| Path | Role |
-|------|------|
-| `src/bin/main_copytrading.rs` | Entrypoint, HTTP server, agent endpoints |
-| **Core** | |
-| `src/api.rs` | Polymarket CLOB/Data API client |
-| `src/clob_sdk.rs` | FFI bindings to the CLOB SDK `.so` |
-| `src/config.rs` | CLI args, config loading |
-| `src/models.rs` | Market, Token, OrderBook, TokenPrice, etc. |
-| **Trading & strategy** | |
-| `src/copy_trading.rs` | Config, filters, copy logic, exit loop, position diff |
-| `src/trader.rs` | Order placement, portfolio sync |
-| `src/simulation.rs` | Simulated orders, price trend tracking |
-| `src/backtest.rs` | Backtest engine |
-| `src/merge.rs` | Merge up/down amounts |
-| **Monitoring** | |
-| `src/activity_stream.rs` | WebSocket client for real-time trades |
-| `src/detector.rs` | Price detector, buy opportunities |
-| `src/monitor.rs` | Market monitor, snapshots |
-| `src/rtds.rs` | Chainlink BTC price feed |
-| **Web & utilities** | |
-| `src/web_state.rs` | Shared state for UI, `/api/state` JSON + SSE |
-| `src/logging.rs` | History file, trading event logging |
-| `frontend/` | Leptos (Rust → WASM): dashboard, agent, logs, portfolio, settings |
+If you want to explore the code, here is the easiest mental model:
+
+### Main entry
+
+* `src/bin/main_copytrading.rs`
+  Starts the app, serves the dashboard, and exposes **agent** endpoints
+
+### Polymarket API and core setup
+
+* `src/api.rs`
+  **Polymarket** API client
+* `src/clob_sdk.rs`
+  CLOB SDK integration
+* `src/config.rs`
+  CLI args and config loading
+* `src/models.rs`
+  Shared data models for **trading** and market state
+
+### Trading logic
+
+* `src/copy_trading.rs`
+  Copy **trading** logic, filters, exits, and config
+* `src/trader.rs`
+  Order handling and portfolio updates
+* `src/simulation.rs`
+  Simulation mode
+* `src/backtest.rs`
+  Backtest logic
+
+### Monitoring
+
+* `src/activity_stream.rs`
+  Real-time **Polymarket** activity stream
+* `src/detector.rs`
+  Opportunity detection
+* `src/monitor.rs`
+  Market monitoring
+* `src/rtds.rs`
+  External price feed support
+
+### Web state and UI
+
+* `src/web_state.rs`
+  Dashboard state and API output
+* `src/logging.rs`
+  Trade and system logs
+* `frontend/`
+  The web dashboard for **Polymarket trading** and the AI **agent**
+
+---
+
+## Who this project is for
+
+This project is a good fit if you are:
+
+* active on **Polymarket**
+* interested in copy **trading**
+* trying to monitor multiple traders
+* building a better **trading** workflow
+* looking for a local-first **agent** tool
+* interested in combining AI **agent** research with **Polymarket**
+
+It is especially useful if you want faster execution and a more organized **trading** process.
 
 ---
 
 ## References
 
-- [Polymarket CLOB Documentation](https://docs.polymarket.com/developers/CLOB/)
-- [Polymarket API Reference](https://docs.polymarket.com/api-reference/introduction)
-- [OpenRouter](https://openrouter.ai/) — multi-model AI gateway
-- [Mahoraga](https://mahoraga.dev/) — Monitor → Analyze method
+* [Polymarket CLOB Documentation](https://docs.polymarket.com/developers/CLOB/)
+* [Polymarket API Reference](https://docs.polymarket.com/api-reference/introduction)
+* [OpenRouter](https://openrouter.ai/)
+* [Mahoraga](https://mahoraga.dev/)
 
 ---
 
-<p align="center"><sub>Built for traders who want speed, transparency, and an edge.</sub></p>
+**Contact:** [@snipmaxi](https://t.me/snipmaxi)
