@@ -90,6 +90,20 @@ Adjust how your copy **trading agent** behaves, including sizing, filters, and e
 
 ---
 
+## Workflow (diagrams)
+
+Place these files in `docs/` (or adjust paths if you store assets elsewhere).
+
+### Step 1
+
+![Step 1](docs/step1.png)
+
+### Full pipeline
+
+![Full pipeline](docs/full_pipeline.png)
+
+---
+
 ## Getting started
 
 You do not need to understand the whole codebase before using this **Polymarket trading agent**.
